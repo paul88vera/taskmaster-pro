@@ -1,7 +1,7 @@
 # taskmaster-pro
 
-![Screenshot]()
-![Screenshot]()
+![Screenshot](https://github.com/paul88vera/taskmaster-pro/blob/develop/assets/images/TMP_Widescreen.png)
+![Screenshot](https://github.com/paul88vera/taskmaster-pro/blob/develop/assets/images/TMP_Mobile.png)
 
 ## Purpose
 TaskMaster Pro is a local task manager web application template.
