@@ -4,8 +4,6 @@ var tasks = {};
 var auditTask = function(taskEl) {
   // get date from task element
   var date = $(taskEl).find("span").text().trim();
-  //ensure it worked
-  console.log(date);
 
   // convert to moment object at 5:00pm
   var time = moment(date, "L").set("hour", 17);
@@ -21,7 +19,6 @@ var auditTask = function(taskEl) {
     $(taskEl).addClass("list-group-item-warning");
   }
 
-  console.log(taskEl);
 };
 
 var createTask = function(taskText, taskDate, taskList) {
@@ -59,7 +56,6 @@ var loadTasks = function() {
 
   // loop over object properties
   $.each(tasks, function(list, arr) {
-    console.log(list, arr);
     // then loop over sub-array
     arr.forEach(function(task) {
       createTask(task.text, task.date, list);
@@ -144,7 +140,7 @@ $(".list-group").on("click", "span", function() {
 
   // automatically focus on new element
   dateInput.trigger("focus");
-})
+});
 
 
 //value of due date was changed
@@ -237,7 +233,6 @@ $(".card .list-group").sortable({
   activate: function(event) {
     $(this).addClass("dropover");
     $(".bottom-trash").addClass("bottom-trash-drag");
-    console.log("deactivate", this);
   },
   deactivate: function(event) {
     $(this).removeClass("dropover");
@@ -245,11 +240,10 @@ $(".card .list-group").sortable({
   },
   over: function(event) {
     $(event.target).removeClass("dropover-active");
-    console.log("over", event.target);
   },
   out: function(event) {
     $(event.target).removeClass("dropover-active");
-    console.log("out", event.target);
+
   },
   update: function(event) {
     // array to store the task data in
@@ -274,7 +268,6 @@ $(".card .list-group").sortable({
       });
     });
 
-    console.log(tempArr);
     // trim down list's ID to match object property
     var arrName = $(this)
     .attr("id")
@@ -291,16 +284,13 @@ $("#trash").droppable({
   accept: ".card .list-group-item",
   tolerance: "touch",
   drop: function(event, ui) {
-    console.log("drop");
     ui.draggable.remove();
     $('.bottom-trash').removeClass('bottom-trash-active');
   },
   over: function(event, ui) {
     $('.bottom-trash').addClass('bottom-trash-active');
-    console.log("over");
   },
   out: function(event, ui) {
-    console.log("out");
     $('.bottom-trash').removeClass('bottom-trash-active');
   }
 });
